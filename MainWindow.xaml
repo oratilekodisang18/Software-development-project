@@ -1,0 +1,137 @@
+﻿<Window x:Class="ST10363214_PROG_POEP3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ST10363214_PROG_POEP3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="800">
+    <Window.Resources>
+        <!-- Define styles for TextBlocks, TextBoxes, Buttons, ComboBoxes, and ListBoxes -->
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="Foreground" Value="#7F7F7F"/>
+            <!-- Grey -->
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <!-- Light Grey -->
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#FFC0CB"/>
+                    <!-- Baby Pink -->
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FFC0CB"/>
+            <!-- Baby Pink -->
+            <Setter Property="BorderBrush" Value="#FFC0CB"/>
+            <!-- Baby Pink -->
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF91A4"/>
+                    <!-- Lighter Baby Pink -->
+                    <Setter Property="BorderBrush" Value="#FF91A4"/>
+                    <!-- Lighter Baby Pink -->
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="0,10,0,10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <!-- Light Grey -->
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="#FFC0CB"/>
+                    <!-- Baby Pink -->
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <!-- Light Grey -->
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="MinHeight" Value="100"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#F2F2F2">
+        <!-- Light Grey -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel Margin="20">
+                <!-- Recipe -->
+                <TextBlock Text="Enter Recipe:"/>
+                <TextBox Name="RecipeNameTextBox"/>
+
+                <!-- Ingredients -->
+                <TextBlock Text="Enter Ingredient:"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,20">
+                    <TextBox Name="IngredientNameTextBox" Width="200" Text="Name" GotFocus="FilterByTextBox_GotFocus" LostFocus="FilterByTextBox_LostFocus"/>
+                    <TextBox Name="IngredientQuantityTextBox" Width="75" Text="Quantity" GotFocus="FilterByTextBox_GotFocus" LostFocus="FilterByTextBox_LostFocus"/>
+                    <TextBox Name="IngredientUnitTextBox" Width="175" Text="Unit of Measurement" GotFocus="FilterByTextBox_GotFocus" LostFocus="FilterByTextBox_LostFocus"/>
+                    <TextBox Name="IngredientCaloriesTextBox" Width="75" Text="Calories" GotFocus="FilterByTextBox_GotFocus" LostFocus="FilterByTextBox_LostFocus"/>
+                    <ComboBox Name="FoodGroupComboBox" Width="210"/>
+                </StackPanel>
+
+                <!-- Buttons -->
+                <Button Name="AddIngredientButton" Content="Add Ingredient"/>
+                <ListBox Name="IngredientsListBox"/>
+
+                <!-- Steps -->
+                <TextBlock Text="Steps:"/>
+                <TextBox Name="StepTextBox"/>
+                <Button Name="AddStepButton" Content="Add Step"/>
+                <ListBox Name="StepsListBox"/>
+
+                <!-- Save Recipe -->
+                <Button Name="SaveRecipeButton" Content="Save Recipe"/>
+
+                <!-- Select a Recipe -->
+                <TextBlock Text="Select a Recipe"/>
+                <ListBox Name="RecipesListBox"/>
+                <TextBlock Name="RecipeDetailsTextBlock" TextWrapping="Wrap"/>
+
+                <!-- Display Recipe and Clear Recipe Buttons -->
+                <Button Name="DisplayRecipeButton" Content="Display Recipe"/>
+                <Button Name="ClearRecipeButton" Content="Clear Recipe"/>
+
+                <!-- Scale Factor -->
+                <TextBlock Text="Scale Factor:"/>
+                <ComboBox Name="ScaleComboBox"/>
+                <Button Name="ScaleRecipeButton" Content="Scale Recipe"/>
+                <Button Name="ResetQuantitiesButton" Content="Reset Quantities"/>
+
+                <!-- Filter By -->
+                <TextBlock Text="Filter By:"/>
+                <ComboBox Name="FilterByComboBox"/>
+                <TextBox Name="FilterByTextBox" Text="Value" GotFocus="FilterByTextBox_GotFocus" LostFocus="FilterByTextBox_LostFocus"/>
+                <Button Name="FilterByButton" Content="Filter"/>
+                <ListBox Name="FilterByListBox"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
+
+
